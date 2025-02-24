@@ -1,7 +1,7 @@
 """
 URL configuration for backend project.
 
-The urlpatterns list routes URLs to views. For more information please see:
+The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.1/topics/http/urls/
 Examples:
 Function views
@@ -16,11 +16,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+]
+
+
+from django.urls import path
 from users.views import UserListCreate
 from tasks.views import TaskListCreate
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('users/', UserListCreate.as_view(), name = 'users-list' ),
-    path('tasks/', TaskListCreate.as_view(), name = 'tasks-list'),
+    path('users/', UserListCreate.as_view(), name='users-list'),
+    path('tasks/', TaskListCreate.as_view(), name='tasks-list'),
 ]
